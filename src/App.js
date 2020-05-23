@@ -6,11 +6,27 @@ import "./App.css";
 function One() {
   return (
     <div>
-      <h2>tap 1</h2>
-      <h2>tap 2</h2>
+      <h2>Cach 1</h2>
+      <h2>Cach 1.1</h2>
     </div>
   );
 }
+
+// C2
+
+var Two = function () {
+  return (
+    <div>
+      <h3>Cach 2</h3>
+    </div>
+  );
+};
+
+var Three = () => (
+  <div>
+    <h3>Cach 3</h3>
+  </div>
+);
 
 function App() {
   return (
@@ -29,6 +45,8 @@ function App() {
           Learn React
         </a>
         <One></One>
+        <Two />
+        <Three />
       </header>
     </div>
   );
