@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -28,6 +28,18 @@ var Three = () => (
   </div>
 );
 
+// rcjc + Tab
+// eslint-disable-next-line no-undef
+class Four extends Component {
+  render() {
+    return (
+      <div>
+        <button>ReactJS Cach 4</button>
+      </div>
+    );
+  }
+}
+
 function App() {
   return (
     <div className="App">
@@ -47,6 +59,7 @@ function App() {
         <One></One>
         <Two />
         <Three />
+        <Four />
       </header>
     </div>
   );
