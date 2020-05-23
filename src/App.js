@@ -1,6 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+const arrNumber = [1, 2, 3, 4, 5, 6];
+
+const arrNumberNew = arrNumber.map((x) => x * 2 + ",");
+
+const arrNew = arrNumber.map((x) => (
+  <div>
+    <li>{x * 2}</li>
+  </div>
+));
+class App2 extends Component {
+  render() {
+    return <div>{arrNumberNew}</div>;
+  }
+}
 
 function App() {
   return (
@@ -18,6 +33,8 @@ function App() {
         >
           Learn React
         </a>
+        <App2 />
+        <ul>{arrNew}</ul>
       </header>
     </div>
   );
