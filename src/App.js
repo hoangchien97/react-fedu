@@ -1,6 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+// keyword : HTML to JSX
+
+const a1 = "Chien";
+class RenderJSX extends Component {
+  render() {
+    return (
+      <div>
+        <h3 className="name">Ten toi la : {a1}</h3>
+      </div>
+    );
+  }
+}
 
 function App() {
   return (
@@ -18,6 +31,7 @@ function App() {
         >
           Learn React
         </a>
+        <RenderJSX />
       </header>
     </div>
   );
