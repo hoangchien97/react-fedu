@@ -1,6 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+// C1 using function
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+// C2 using Class
+class Welcome2 extends Component {
+  render() {
+    return <div>{this.props.name}</div>;
+  }
+}
 
 function App() {
   return (
@@ -18,6 +29,8 @@ function App() {
         >
           Learn React
         </a>
+        <Welcome name="Chien" />
+        <Welcome2 name="Hoang Duc" />
       </header>
     </div>
   );
