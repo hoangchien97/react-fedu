@@ -3,7 +3,67 @@ import React, { Component } from "react";
 class Content extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showFormEdit: true,
+    };
   }
+
+  renderButton = () => {
+    return (
+      <div className="row">
+        <div className="btn btn-group">
+          <div className="btn btn-info" onClick={() => this.editForm()}>
+            Edit
+          </div>
+          <div className="btn btn-warning">Remove</div>
+        </div>
+      </div>
+    );
+  };
+
+  renderForm = () => {
+    return (
+      <div className="row">
+        <div className="form-group">
+          <input
+            type="text"
+            className="form-control"
+            name
+            id
+            aria-describedby="helpId"
+            placeholder
+          />
+        </div>
+        <div
+          className="btn btn-success"
+          style={{ height: "38px", marginLeft: "10px" }}
+          onClick={() => this.saveForm()}
+        >
+          Save
+        </div>
+      </div>
+    );
+  };
+
+  editForm = () => {
+    this.setState({
+      showFormEdit: false,
+    });
+  };
+
+  saveForm = () => {
+    this.setState({
+      showFormEdit: true,
+    });
+  };
+
+  displayData = () => {
+    if (this.state.showFormEdit) {
+      return this.renderButton();
+    } else {
+      return this.renderForm();
+    }
+  };
 
   render() {
     return (
@@ -27,6 +87,7 @@ class Content extends Component {
                 </div>
               </div>
             </div>
+            {this.displayData()}
           </div>
         </section>
       </div>
