@@ -32,6 +32,7 @@ class Content extends Component {
             id
             aria-describedby="helpId"
             placeholder
+            defaultValue={this.props.title}
           />
         </div>
         <div
