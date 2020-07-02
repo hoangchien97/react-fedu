@@ -8,26 +8,24 @@ import Home from "../component/Home/Home";
 class Content extends Component {
   render() {
     return (
-      <Router>
-        <div>
-          {/* A <Switch> looks through its children <Route>s and
+      <div>
+        {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/news">
-              <News />
-            </Route>
-            <Route path="/detail">
-              <Detail />
-            </Route>
-            <Route path="/contact">
-              <Contact />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/news">
+            <News />
+          </Route>
+          <Route path="/detail">
+            <Detail />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+        </Switch>
+      </div>
     );
   }
 }

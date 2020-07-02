@@ -4,14 +4,16 @@ import Navbar from "./component/Navbar/Navbar";
 // import Home from "./component/Home/Home";
 import Footer from "./component/Footer.js/Footer";
 import Content from "./router/Content";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      {/* <Home /> */}
-      <Content />
-      <Footer />
+      <Router>
+        <Navbar />
+        <Content />
+        <Footer />
+      </Router>
     </div>
   );
 }

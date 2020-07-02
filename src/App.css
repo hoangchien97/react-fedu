@@ -501,3 +501,8 @@ header.masthead.tintuc {
   min-height: 31vh;
   height: 10vh;
 }
+
+ul.navbar-nav.ml-auto li a {
+  display: block;
+  padding: 10px 12px;
+}
