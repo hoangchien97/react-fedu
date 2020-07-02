@@ -8,54 +8,54 @@ class Content extends Component {
     };
   }
 
-  renderButton = () => {
-    return (
-      <div className="row">
-        <div className="btn btn-group">
-          <div className="btn btn-info" onClick={() => this.editForm()}>
-            Edit
-          </div>
-          <div className="btn btn-warning">Remove</div>
+  renderButton = () => (
+    <div className="row">
+      <div className="btn btn-group">
+        <div className="btn btn-info" onClick={() => this.clickEdit()}>
+          Edit
         </div>
+        <div className="btn btn-warning">Remove</div>
       </div>
-    );
-  };
+    </div>
+  );
 
-  renderForm = () => {
-    return (
-      <div className="row">
-        <div className="form-group">
-          <input
-            type="text"
-            className="form-control"
-            name
-            id
-            aria-describedby="helpId"
-            placeholder
-            defaultValue={this.props.title}
-          />
-        </div>
-        <div
-          className="btn btn-success"
-          style={{ height: "38px", marginLeft: "10px" }}
-          onClick={() => this.saveForm()}
-        >
-          Save
-        </div>
+  renderForm = () => (
+    <div className="row">
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          name
+          id
+          aria-describedby="helpId"
+          placeholder
+          ref={(value) => {
+            this.dataEdit = value;
+          }}
+          defaultValue={this.props.title}
+        />
       </div>
-    );
-  };
+      <div
+        className="btn btn-success"
+        style={{ height: "38px", marginLeft: "10px" }}
+        onClick={() => this.clickSave()}
+      >
+        Save
+      </div>
+    </div>
+  );
 
-  editForm = () => {
+  clickEdit = () => {
     this.setState({
       showFormEdit: false,
     });
   };
 
-  saveForm = () => {
+  clickSave = () => {
     this.setState({
       showFormEdit: true,
     });
+    console.log(this.dataEdit.value);
   };
 
   displayData = () => {
