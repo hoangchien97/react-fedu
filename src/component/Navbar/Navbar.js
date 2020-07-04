@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
@@ -28,13 +28,18 @@ class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto">
                 <li className="nav-item">
-                  <Link to="/news">Tin tức</Link>
+                  <NavLink to="/home" activeClassName="active-menu">
+                    Trang chủ
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link to="/detail">Tin chi tiết</Link>
+                  <NavLink to="/news">Tin tức</NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link to="/contact">Liên hệ</Link>
+                  <NavLink to="/detail">Tin chi tiết</NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/contact">Liên hệ</NavLink>
                 </li>
               </ul>
             </div>
