@@ -18,7 +18,7 @@ class Content extends Component {
           <Route path="/news">
             <News />
           </Route>
-          <Route path="/detail">
+          <Route path="/new-detail">
             <Detail />
           </Route>
           <Route path="/contact">

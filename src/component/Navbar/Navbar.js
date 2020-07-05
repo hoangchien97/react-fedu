@@ -36,7 +36,7 @@ class Navbar extends Component {
                   <NavLink to="/news">Tin tức</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/detail">Tin chi tiết</NavLink>
+                  <NavLink to="/new-detail">Tin chi tiết</NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink to="/contact">Liên hệ</NavLink>

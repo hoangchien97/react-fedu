@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import NewItem from "./Item";
+import data from "./../data.json";
 class New extends Component {
   render() {
     return (
@@ -18,72 +19,16 @@ class New extends Component {
         </header>
         <div className="container">
           <div className="row">
-            <div className="col-4">
-              <div className="card">
-                <div className="card-body">
-                  <a href="chitiet.html">
-                    <img
-                      src="http://placehold.it/800x400"
-                      alt=""
-                      className="img-fluid"
-                    />
-                  </a>
-                  <blockquote className="blockquote">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eligendi, aut?
-                    </p>
-                    <footer className="card-blockquote">
-                      <cite title="Source title">From Fedu</cite>
-                    </footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="card">
-                <div className="card-body">
-                  <a href="chitiet.html">
-                    <img
-                      src="http://placehold.it/800x400"
-                      alt=""
-                      className="img-fluid"
-                    />
-                  </a>
-                  <blockquote className="blockquote">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eligendi, aut?
-                    </p>
-                    <footer className="card-blockquote">
-                      <cite title="Source title">From Fedu</cite>
-                    </footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
-            <div className="col-4">
-              <div className="card">
-                <div className="card-body">
-                  <a href="chitiet.html">
-                    <img
-                      src="http://placehold.it/800x400"
-                      alt=""
-                      className="img-fluid"
-                    />
-                  </a>
-                  <blockquote className="blockquote">
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Eligendi, aut?
-                    </p>
-                    <footer className="card-blockquote">
-                      <cite title="Source title">From Fedu</cite>
-                    </footer>
-                  </blockquote>
-                </div>
-              </div>
-            </div>
+            {data.map((value, index) => {
+              return (
+                <NewItem
+                  key={index}
+                  title={value.title}
+                  img={value.image}
+                  description={value.description}
+                ></NewItem>
+              );
+            })}
           </div>
         </div>
         {/* End tin tuc */}
