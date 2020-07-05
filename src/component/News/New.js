@@ -23,6 +23,7 @@ class New extends Component {
               return (
                 <NewItem
                   key={index}
+                  id={value.id}
                   title={value.title}
                   img={value.image}
                   description={value.description}
