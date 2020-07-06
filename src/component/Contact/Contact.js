@@ -16,6 +16,11 @@ class Contact extends Component {
       isRedirect: true,
     });
   };
+
+  isChange = (event) => {
+    console.log(event.target.value);
+  };
+
   render() {
     if (this.state.isRedirect) {
       return <Redirect to="/" />;
@@ -63,6 +68,7 @@ class Contact extends Component {
                       <input
                         className="form-control"
                         id="name"
+                        name="userName"
                         type="text"
                         placeholder="Name"
                         required="required"
@@ -78,10 +84,12 @@ class Contact extends Component {
                       <input
                         className="form-control"
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="Email Address"
                         required="required"
                         data-validation-required-message="Please enter your email address."
+                        onChange={(event) => this.isChange(event)}
                       />
                       <p className="help-block text-danger" />
                     </div>
@@ -92,6 +100,7 @@ class Contact extends Component {
                       <input
                         className="form-control"
                         id="phone"
+                        name="phoneNumber"
                         type="tel"
                         placeholder="Phone Number"
                         required="required"
@@ -107,6 +116,7 @@ class Contact extends Component {
                       <textarea
                         className="form-control"
                         id="message"
+                        name="message"
                         rows={5}
                         placeholder="Message"
                         required="required"
