@@ -1,7 +1,25 @@
 import React, { Component } from "react";
-
+import "./contact.scss";
+import { Redirect } from "react-router-dom";
 class Contact extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isRedirect: false,
+    };
+  }
+
+  sendContact = (event) => {
+    // khong cho chuyen trang
+    event.preventDefault();
+    this.setState({
+      isRedirect: true,
+    });
+  };
   render() {
+    if (this.state.isRedirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div>
         <header className="masthead tintuc">
@@ -41,7 +59,7 @@ class Contact extends Component {
                 >
                   <div className="control-group">
                     <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                      <label>Name</label>
+                      <label className="label-form">Name</label>
                       <input
                         className="form-control"
                         id="name"
@@ -56,7 +74,7 @@ class Contact extends Component {
                   </div>
                   <div className="control-group">
                     <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                      <label>Email Address</label>
+                      <label className="label-form">Email Address</label>
                       <input
                         className="form-control"
                         id="email"
@@ -70,7 +88,7 @@ class Contact extends Component {
                   </div>
                   <div className="control-group">
                     <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                      <label>Phone Number</label>
+                      <label className="label-form">Phone Number</label>
                       <input
                         className="form-control"
                         id="phone"
@@ -85,7 +103,7 @@ class Contact extends Component {
                   </div>
                   <div className="control-group">
                     <div className="form-group floating-label-form-group controls mb-0 pb-2">
-                      <label>Message</label>
+                      <label className="label-form">Message</label>
                       <textarea
                         className="form-control"
                         id="message"
@@ -105,6 +123,9 @@ class Contact extends Component {
                       type="submit"
                       className="btn btn-primary btn-xl"
                       id="sendMessageButton"
+                      onClick={(event) => {
+                        this.sendContact(event);
+                      }}
                     >
                       Send
                     </button>
