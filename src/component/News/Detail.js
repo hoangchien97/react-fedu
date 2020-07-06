@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import data from "./../data.json";
+import NewRelated from "./NewRelated";
 class Detail extends Component {
   render() {
-    console.log(this.props.match.params.id);
-
+    var count = 1;
     return (
       <div>
         <header className="masthead tintuc">
@@ -21,20 +21,20 @@ class Detail extends Component {
         {data.map((value, key) => {
           if (value.id === +this.props.match.params.id) {
             return (
-              <div classname="jumbotron jumbotron-fluid">
-                <div classname="container">
+              <div className="jumbotron jumbotron-fluid" key={value.id}>
+                <div className="container">
                   <img
                     src={value.image}
-                    classname="img-fluid new-detail__image"
+                    className="img-fluid new-detail__image"
                     alt=""
                   />
-                  <p classname="lead">{value.title}</p>
-                  <hr classname="my-2" />
+                  <p className="lead">{value.title}</p>
+                  <hr className="my-2" />
                   <p>{value.description}</p>
 
-                  <p classname="lead">
+                  <p className="lead">
                     <a
-                      classname="btn btn-primary btn-lg"
+                      className="btn btn-primary btn-lg"
                       href="Jumbo action link"
                       role="button"
                     >
@@ -56,58 +56,21 @@ class Detail extends Component {
           <div className="row">
             <div className="col-12">
               <div className="card-deck">
-                <div className="card">
-                  <a href="chitiet.html">
-                    <img
-                      className="card-img-top"
-                      src="http://placehold.it/500x300/"
-                      alt=""
-                    />
-                  </a>
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
-                    <p className="card-text">Text</p>
-                  </div>
-                </div>
-                <div className="card">
-                  <a href="chitiet.html">
-                    <img
-                      className="card-img-top"
-                      src="http://placehold.it/500x300/"
-                      alt=""
-                    />
-                  </a>
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
-                    <p className="card-text">Text</p>
-                  </div>
-                </div>
-                <div className="card">
-                  <a href="chitiet.html">
-                    <img
-                      className="card-img-top"
-                      src="http://placehold.it/500x300/"
-                      alt=""
-                    />
-                  </a>
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
-                    <p className="card-text">Text</p>
-                  </div>
-                </div>
-                <div className="card">
-                  <a href="chitiet.html">
-                    <img
-                      className="card-img-top"
-                      src="http://placehold.it/500x300/"
-                      alt=""
-                    />
-                  </a>
-                  <div className="card-body">
-                    <h4 className="card-title">Title</h4>
-                    <p className="card-text">Text</p>
-                  </div>
-                </div>
+                {data.map((value, key) => {
+                  if (value.id !== +this.props.match.params.id) {
+                    if (count <= 4) {
+                      return (
+                        <NewRelated
+                          key={value.id}
+                          id={value.id}
+                          title={value.title}
+                          description={value.description}
+                          img={value.image}
+                        ></NewRelated>
+                      );
+                    }
+                  }
+                })}
               </div>
             </div>
           </div>

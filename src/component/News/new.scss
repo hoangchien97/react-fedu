@@ -13,3 +13,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.new-related {
+  &__image {
+    max-height: 200px;
+    @media (min-width: 768px) {
+      max-height: 120px;
+    }
+  }
+}
