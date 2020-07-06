@@ -506,3 +506,7 @@ ul.navbar-nav.ml-auto li a {
   display: block;
   padding: 10px 12px;
 }
+
+.new-detail__image {
+  width: 100%;
+}

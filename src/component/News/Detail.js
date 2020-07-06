@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-
+import data from "./../data.json";
 class Detail extends Component {
   render() {
+    console.log(this.props.match.params.id);
+
     return (
       <div>
         <header className="masthead tintuc">
@@ -16,41 +18,34 @@ class Detail extends Component {
             </div>
           </div>
         </header>
-        <div className="jumbotron jumbotron-fluid">
-          <div className="container">
-            <img
-              src="http://placehold.it/1900x700"
-              className="img-fluid "
-              alt=""
-            />
-            <p className="lead">Jumbo helper text</p>
-            <hr className="my-2" />
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus vitae id impedit corrupti odio vero magni quos error
-              iusto aliquam.
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus vitae id impedit corrupti odio vero magni quos error
-              iusto aliquam.
-            </p>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Voluptatibus vitae id impedit corrupti odio vero magni quos error
-              iusto aliquam.
-            </p>
-            <p className="lead">
-              <a
-                className="btn btn-primary btn-lg"
-                href="Jumbo action link"
-                role="button"
-              >
-                Jumbo action name
-              </a>
-            </p>
-          </div>
-        </div>
+        {data.map((value, key) => {
+          if (value.id === +this.props.match.params.id) {
+            return (
+              <div classname="jumbotron jumbotron-fluid">
+                <div classname="container">
+                  <img
+                    src={value.image}
+                    classname="img-fluid new-detail__image"
+                    alt=""
+                  />
+                  <p classname="lead">{value.title}</p>
+                  <hr classname="my-2" />
+                  <p>{value.description}</p>
+
+                  <p classname="lead">
+                    <a
+                      classname="btn btn-primary btn-lg"
+                      href="Jumbo action link"
+                      role="button"
+                    >
+                      Read more
+                    </a>
+                  </p>
+                </div>
+              </div>
+            );
+          }
+        })}
         <div className="container">
           <div className="card border-primary">
             <img className="card-img-top" src alt="" />

@@ -18,9 +18,9 @@ class Content extends Component {
           <Route path="/news">
             <News />
           </Route>
-          <Route path="/new-detail">
-            <Detail />
-          </Route>
+          {/* <Route path="/new/:slug.:id.html" children={<Detail />}>
+          </Route> */}
+          <Route path="/new/:slug.:id.html" component={Detail}></Route>
           <Route path="/contact">
             <Contact />
           </Route>

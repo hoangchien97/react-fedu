@@ -41,9 +41,9 @@ class NewItem extends Component {
           <div className="card-body">
             <a
               href={
-                "/new" +
+                "/new/" +
                 this.changeURLToSlug(this.props.title) +
-                "-" +
+                "." +
                 this.props.id +
                 ".html"
               }
