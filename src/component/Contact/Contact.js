@@ -6,6 +6,8 @@ class Contact extends Component {
     super(props);
     this.state = {
       isRedirect: false,
+      interesting: false,
+      gender: "male",
     };
 
     // using binding data
@@ -22,8 +24,10 @@ class Contact extends Component {
   };
 
   handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+    const target = event.target;
+    const name = target.name;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+
     this.setState({
       [name]: value, // Ex : state => email: "hdc@gmail.com"
     });
@@ -136,6 +140,39 @@ class Contact extends Component {
                         onChange={this.handleChange}
                       />
                       <p className="help-block text-danger" />
+                    </div>
+                  </div>
+                  <div className="control-group">
+                    <div className="form-group floating-label-form-group controls mb-0 pb-2">
+                      <label className="label-form">Gender</label>
+                      <select
+                        className="form-control"
+                        name="gender"
+                        id=""
+                        value={this.state.gender}
+                        onChange={this.handleChange}
+                      >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                      <p className="help-block text-danger" />
+                    </div>
+                  </div>
+                  <div className="control-group">
+                    <div className="form-group floating-label-form-group controls mb-0 pb-2">
+                      <label className="label-form">Interesting</label>
+                      <div className="form-check">
+                        <label className="form-check-label">
+                          <input
+                            className="form-check-input"
+                            name="interesting"
+                            type="checkbox"
+                            checked={this.state.interesting}
+                            onChange={this.handleChange}
+                          />
+                          Soccer
+                        </label>
+                      </div>
                     </div>
                   </div>
                   <br />
