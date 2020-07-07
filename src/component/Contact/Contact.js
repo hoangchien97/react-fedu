@@ -7,6 +7,10 @@ class Contact extends Component {
     this.state = {
       isRedirect: false,
     };
+
+    // using binding data
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit = (event) => {
@@ -14,26 +18,21 @@ class Contact extends Component {
     event.preventDefault();
     this.setState({
       isRedirect: true,
-      userName: "",
-      email: "",
-      phoneNumber: "",
-      msg: "",
     });
   };
 
-  isChange = (event) => {
-    console.log(event.target.name); // name input
-    console.log(event.target.value); // value input
+  handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value, // Ex : state => email: "hdc@gmail.com"
+    });
   };
-
-  // handleChange = (event) => {
-  //   this.setState({
-
-  //   })
-  // };
 
   render() {
     if (this.state.isRedirect) {
+      console.log(this.state);
+
       return <Redirect to="/" />;
     }
     return (
@@ -85,6 +84,7 @@ class Contact extends Component {
                         required="required"
                         data-validation-required-message="Please enter your name."
                         aria-invalid="false"
+                        onChange={this.handleChange}
                       />
                       <p className="help-block text-danger" />
                     </div>
@@ -100,7 +100,7 @@ class Contact extends Component {
                         placeholder="Email Address"
                         required="required"
                         data-validation-required-message="Please enter your email address."
-                        onChange={(event) => this.isChange(event)}
+                        onChange={this.handleChange}
                       />
                       <p className="help-block text-danger" />
                     </div>
@@ -117,6 +117,7 @@ class Contact extends Component {
                         required="required"
                         data-validation-required-message="Please enter your phone number."
                         aria-invalid="false"
+                        onChange={this.handleChange}
                       />
                       <p className="help-block text-danger" />
                     </div>
@@ -132,7 +133,7 @@ class Contact extends Component {
                         placeholder="Message"
                         required="required"
                         data-validation-required-message="Please enter a message."
-                        defaultValue={""}
+                        onChange={this.handleChange}
                       />
                       <p className="help-block text-danger" />
                     </div>
@@ -144,9 +145,7 @@ class Contact extends Component {
                       type="submit"
                       className="btn btn-primary btn-xl"
                       id="sendMessageButton"
-                      onClick={(event) => {
-                        this.handleSubmit(event);
-                      }}
+                      onClick={this.handleSubmit}
                     >
                       Send
                     </button>
