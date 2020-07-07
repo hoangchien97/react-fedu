@@ -8,18 +8,36 @@ class Contact extends Component {
       isRedirect: false,
       interesting: false,
       gender: "male",
+      fileUpload: "",
     };
 
     // using binding data
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFileChange = this.handleFileChange.bind(this);
+
+    // upload file
+
+    this.fileInput = React.createRef();
   }
 
   handleSubmit = (event) => {
     // khong cho chuyen trang
     event.preventDefault();
+
     this.setState({
       isRedirect: true,
+    });
+  };
+
+  handleFileChange = (event) => {
+    // console.log(event.target.files); // log
+
+    // get name
+    // fileName = event.target.files[0].name
+    const fileName = this.fileInput.current.files[0].name;
+    this.setState({
+      fileUpload: fileName,
     });
   };
 
@@ -172,6 +190,22 @@ class Contact extends Component {
                           />
                           Soccer
                         </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="control-group">
+                    <div className="form-group floating-label-form-group controls mb-0 pb-2">
+                      <label className="label-form">Upload File</label>
+                      <div className="form-group"></div>
+                      <div className="form-group">
+                        <input
+                          type="file"
+                          name="file-upload"
+                          className="form-control-file"
+                          aria-describedby="fileHelpId"
+                          ref={this.fileInput}
+                          onChange={this.handleFileChange}
+                        />
                       </div>
                     </div>
                   </div>
