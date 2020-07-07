@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import changeURLToSlug from "./../../helper";
 import "./new.scss";
 class NewItem extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="col-4">

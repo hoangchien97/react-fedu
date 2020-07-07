@@ -45,6 +45,7 @@ class Detail extends Component {
               </div>
             );
           }
+          return true;
         })}
         <div className="container">
           <div className="card border-primary">
@@ -70,6 +71,7 @@ class Detail extends Component {
                       );
                     }
                   }
+                  return true;
                 })}
               </div>
             </div>
