@@ -9,17 +9,28 @@ class Contact extends Component {
     };
   }
 
-  sendContact = (event) => {
+  handleSubmit = (event) => {
     // khong cho chuyen trang
     event.preventDefault();
     this.setState({
       isRedirect: true,
+      userName: "",
+      email: "",
+      phoneNumber: "",
+      msg: "",
     });
   };
 
   isChange = (event) => {
-    console.log(event.target.value);
+    console.log(event.target.name); // name input
+    console.log(event.target.value); // value input
   };
+
+  // handleChange = (event) => {
+  //   this.setState({
+
+  //   })
+  // };
 
   render() {
     if (this.state.isRedirect) {
@@ -134,7 +145,7 @@ class Contact extends Component {
                       className="btn btn-primary btn-xl"
                       id="sendMessageButton"
                       onClick={(event) => {
-                        this.sendContact(event);
+                        this.handleSubmit(event);
                       }}
                     >
                       Send
