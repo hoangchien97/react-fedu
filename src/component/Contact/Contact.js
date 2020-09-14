@@ -5,6 +5,9 @@ class Contact extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      userName: "",
+      email: "",
+      phoneNumber: "",
       isRedirect: false,
       interesting: false,
       gender: "male",
@@ -51,9 +54,19 @@ class Contact extends Component {
     });
   };
 
+  getData = () => {
+    var content = "";
+    content += "Name nhan duoc la : " + this.state.userName;
+    content += " - Email nhan duoc la : " + this.state.email;
+    content += " - Phone nhan duoc la : " + this.state.phoneNumber;
+    content += " - Message nhan duoc la : " + this.state.message;
+    content += " - Filename Avatar nhan duoc la : " + this.state.fileUpload;
+    return content;
+  };
+
   render() {
     if (this.state.isRedirect) {
-      console.log(this.state);
+      console.log(this.getData());
 
       return <Redirect to="/" />;
     }
